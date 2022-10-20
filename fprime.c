@@ -17,7 +17,7 @@ int main(int ac, char **av)
 		}
 		if (num == 1)
 		{
-			write(1, "1\n1", 2);
+			write(1, "1\n", 2);
 			return (0);
 		}
 		i = 2;
