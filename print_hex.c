@@ -41,10 +41,11 @@ void    ft_putnbrx(unsigned int nbrx, char c)
 	else
 		ft_putchar("0123456789ABCDEF"[nbrx % 16]);
 }
+
 int main(int ac, char **av)
 {
     int nbr;
-
+f
     if (ac == 2)
     {
         nbr = ft_atoi(av[1]);
