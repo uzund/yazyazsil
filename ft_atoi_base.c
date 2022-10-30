@@ -1,14 +1,26 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_atoi_base.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/10/30 21:08:44 by duzun             #+#    #+#             */
+/*   Updated: 2022/10/30 21:09:43 by duzun            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <stdio.h>
 #include <stdlib.h>
- 
-int ft_blank(char c)
+
+int	ft_blank(char c)
 {
 	if (c <= 32)
 		return (1);
 	return (0);
 }
 
-int		ft_valid(char c, int base)
+int	ft_valid(char c, int base)
 {
 	char digits[17] = "0123456789abcdef";
 	char digits2[17] = "0123456789ABCDEF";
@@ -19,7 +31,7 @@ int		ft_valid(char c, int base)
 	return (0);
 }
 
-int		value_of(char c)
+int value_of(char c)
 {
 	if (c >= '0' && c <= '9')
 		return (c - '0');
@@ -30,10 +42,10 @@ int		value_of(char c)
 	return (0);
 }
 
-int		ft_atoi_base(const char *str, int str_base)
+int	ft_atoi_base(const char *str, int str_base)
 {
-	int nbr;
-	int sign;
+	int	nbr;
+	int	sign;
 
 	nbr = 0;
 	sign = 1;
@@ -48,7 +60,7 @@ int		ft_atoi_base(const char *str, int str_base)
 	return (nbr * sign);
 }
 
-int		main(int ac, char **av)
+int	main(int ac, char **av)
 {
 	if (ac == 3)
 		printf("ft_atoi_base sonucu: %d\n", ft_atoi_base(av[1], atoi(av[2])));
