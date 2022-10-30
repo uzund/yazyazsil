@@ -1,5 +1,5 @@
-//#include <stdio.h>
-//#include <stdlib.h>
+#include <stdio.h>
+#include <stdlib.h>
  
 int ft_blank(char c)
 {
@@ -32,23 +32,26 @@ int		value_of(char c)
 
 int		ft_atoi_base(const char *str, int str_base)
 {
-	int result;
+	int nbr;
 	int sign;
 
-	result = 0;
+	nbr = 0;
+	sign = 1;
 	while (ft_blank(*str))
 		str++;
-	sign = (*str == '-') ? -1 : 1;
-	(*str == '-' || *str == '+') ? ++str : 0;
+	if (*str == '-')
+		sign = -1;
+	if (*str == '-' || *str == '+')
+		++str; 
 	while (ft_valid(*str, str_base))
-		result = result * str_base + value_of(*str++);
-	return (result * sign);
+		nbr = nbr * str_base + value_of(*str++);
+	return (nbr * sign);
 }
-/*
+
 int		main(int ac, char **av)
 {
 	if (ac == 3)
-		printf("sonuc: %d\n", ft_atoi_base(av[1], atoi(av[2])));
+		printf("ft_atoi_base sonucu: %d\n", ft_atoi_base(av[1], atoi(av[2])));
 	return (0);
 }
-*/
+
