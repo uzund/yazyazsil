@@ -1,51 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fprime4.c                                          :+:      :+:    :+:   */
+/*   ft_strcpy2.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/30 21:09:54 by duzun             #+#    #+#             */
-/*   Updated: 2022/11/03 23:34:33 by duzun            ###   ########.fr       */
+/*   Created: 2022/11/03 17:01:10 by duzun             #+#    #+#             */
+/*   Updated: 2022/11/03 17:04:42 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
-#include <stdio.h>
-#include <stdlib.h>
 
-int	main(int ac, char **av)
+char	*ft_strcpy(char *s1, char *s2)
 {
 	int	i;
-	int	nbr; 
 
-	if (ac == 2)
+	i = 0;
+	while (s2[i])
 	{
-		nbr = atoi(av[1]);
-		if (nbr < 0)
-		{
-			write(1, "\n", 1);
-			return (0);
-		}
-		i = 2;
-		while (nbr != 1)
-		{
-			if (nbr % i == 0)
-			{
-				printf("%d", i);
-				nbr /= i;
-				if (nbr != 1)
-					printf("*");
-			}
-			else
-				i++;
-		}
-		printf("\n");
-		return (0);
+		s1[i] = s2[i];
+		i++;
 	}
-	else
-	{
-		write(1, "\n", 1);
-		return (0);
-	}
+	s1[i] = '\0';
+	return (s1);
 }

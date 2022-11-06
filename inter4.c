@@ -1,46 +1,54 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fprime4.c                                          :+:      :+:    :+:   */
+/*   inter4.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/30 21:09:54 by duzun             #+#    #+#             */
-/*   Updated: 2022/11/03 23:34:33 by duzun            ###   ########.fr       */
+/*   Created: 2022/10/31 10:33:21 by duzun             #+#    #+#             */
+/*   Updated: 2022/10/31 10:53:19 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
-#include <stdio.h>
-#include <stdlib.h>
+
+int	ft_double(char *str, char c, int n)
+{
+	int	i;
+
+	i = 0;
+	while (i < n)
+	{
+		if (str[i] == c)
+			return (0);
+		i++;
+	}
+	return (1);
+}
 
 int	main(int ac, char **av)
 {
-	int	i;
-	int	nbr; 
-
-	if (ac == 2)
+	if (ac == 3)
 	{
-		nbr = atoi(av[1]);
-		if (nbr < 0)
+		int	i;
+		int	j;
+
+		i = 0;
+		while (av[1][i] != '\0')
 		{
-			write(1, "\n", 1);
-			return (0);
-		}
-		i = 2;
-		while (nbr != 1)
-		{
-			if (nbr % i == 0)
+			j = 0;
+			while (av[2][j] != '\0')
 			{
-				printf("%d", i);
-				nbr /= i;
-				if (nbr != 1)
-					printf("*");
+				if (av[1][i] == av[2][j] && ft_double(av[1], av[2][j], i))
+				{
+					write(1, &av[1][i], 1);
+					break ;
+				}
+				j++;
 			}
-			else
-				i++;
+			i++;
 		}
-		printf("\n");
+		write(1, "\n", 1);
 		return (0);
 	}
 	else
