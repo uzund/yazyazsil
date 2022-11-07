@@ -25,8 +25,8 @@ int	ft_count(int n)
 
 char	*ft_itoa(int n)
 {
-	int	len;
-	char *str;
+	int		len;
+	char	*str;
 
 	len = ft_count(n);
 	str = malloc(sizeof(char) * (len + 1));
@@ -40,7 +40,7 @@ char	*ft_itoa(int n)
 		--len;
 		str[len] = (absolute_value(n % 10) + '0');
 		n = n / 10;
-	} 
+	}
 	return (str);
 }
 
